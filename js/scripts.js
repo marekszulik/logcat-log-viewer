@@ -11,7 +11,6 @@ function beautify() {
 
 function parseLine(line) {
 	var cssClass;
-	var useRegex = false;
 
 	cssClass = getClassFromFirstChar(line);
 
