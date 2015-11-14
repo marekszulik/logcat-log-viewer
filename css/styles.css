@@ -9,3 +9,13 @@
 .beautify-button{
 	margin: 20px;
 }
+
+ul, li
+{
+    list-style-type: none;
+}
+
+ul
+{
+	padding: 0px;
+}
