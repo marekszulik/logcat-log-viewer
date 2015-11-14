@@ -2,15 +2,21 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 
-  <title>Logcat log viewer</title>
-  <meta name="description" content="Logcat log viewer">
+	<title>Logcat log viewer</title>
+	<meta name="description" content="Logcat log viewer">
 
-  <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/jquery-1.11.3.js"></script>
 </head>
 
-<body>
-  <script src="js/scripts.js"></script>
+<body class="whole-site-margin">
+	<div class="log-input-field"><textarea id="pasted-log" rows="30" cols="180"></textarea></div>
+	<button class="beautify-button" onclick="beautify()">Beautify!</button>
+	
+	<div class="whole-site-margin"><ul id="output-container"></ul></div>
+	
+	<script src="js/scripts.js"></script>
 </body>
 </html>

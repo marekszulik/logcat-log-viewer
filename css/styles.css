@@ -1,0 +1,49 @@
+.log-input-field{
+	text-align: center
+}
+
+.whole-site-margin{
+	margin: 20px;
+}
+
+.beautify-button{
+	margin: 20px;
+}
+
+body{
+	background-color: #353531;
+}
+
+textarea{
+	background-color: #C3C3C3;
+}
+
+ul, li
+{
+	list-style-type: none;
+}
+
+ul
+{
+	padding: 0px;
+}
+
+.verbose-log{
+	color: #EDF5FE;
+}
+
+.info-log{
+	color: #05A8AA;
+}
+
+.debug-log{
+	color: #40FD65;
+}
+
+.warning-log{
+	color: #F5B700;
+}
+
+.error-log{
+	color: #C03221;
+}
