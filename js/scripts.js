@@ -11,23 +11,45 @@ function beautify() {
 
 function parseLine(line) {
 	var cssClass;
+	var useRegex = false;
 
-	switch(line.charAt(0)) {
-		case "I":
-			cssClass = "info-log";
-		break;
-		case "D":
-			cssClass = "debug-log";
-		break;
-		case "W":
-			cssClass = "warning-log";
-		break;
-		case "E":
-			cssClass = "error-log";
-		break;
-		default:
-			cssClass = "verbose-log";
-		break;
+	cssClass = getClassFromFirstChar(line);
+
+	if(cssClass == "") {
+		cssClass = getClassFromRegex(line);
 	}
-	return "<ul class=" + cssClass + ">" + line + "</ul>";
+
+	return "<ul class=\"" + cssClass + "\">" + line + "</ul>";
+}
+
+function getClassFromFirstChar(line) {
+	switch(line.charAt(0)) {
+		case "V":
+			return "verbose-log";
+		case "I":
+			return "info-log";
+		case "D":
+			return "debug-log";
+		case "W":
+			return "warning-log";
+		case "E":
+			return "error-log";
+		default:
+			return "";
+	}
+}
+
+function getClassFromRegex(line) {
+	switch(line.charAt(line.search(/ [VIDWE]\//)+1)) {
+		case "I":
+			return "info-log";
+		case "D":
+			return "debug-log";
+		case "W":
+			return "warning-log";
+		case "E":
+			return "error-log";
+		default:
+			return "verbose-log";
+	}
 }
