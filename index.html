@@ -11,12 +11,17 @@
 	<script src="js/jquery-1.11.3.js"></script>
 </head>
 
-<body class="whole-site-margin">
-	<div class="log-input-field"><textarea id="pasted-log" rows="30" cols="180"></textarea></div>
-	<button class="beautify-button" onclick="beautify()">Beautify!</button>
+<body>
+	<div class="log-input-field whole-site-margin"><textarea id="pasted-log" rows="30" cols="180"></textarea></div>
+	<div class="navigation">
+		<button class="beautify-button" onclick="beautify()">Beautify!</button>
+		<button class="beautify-button" onclick="goToPreviousError()">Go to previous error</button>
+		<button class="beautify-button" onclick="goToNextError()">Go to next error</button>
+	</div>
 	
-	<div class="whole-site-margin"><ul id="output-container"></ul></div>
+	<div class="output-margin"><ul id="output-container"></ul></div>
 	
+	<script src="js/escapeHtml.js"></script>
 	<script src="js/scripts.js"></script>
 </body>
 </html>
