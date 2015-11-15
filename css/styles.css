@@ -6,12 +6,26 @@
 	margin: 20px;
 }
 
+.output-margin {
+	margin: 20px;
+	margin-bottom: 70px;
+}
+
+.navigation{
+	bottom: 0px;
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	background-color: #353531;
+}
+
 .beautify-button{
 	margin: 20px;
 }
 
 body{
 	background-color: #353531;
+	margin: 0px;
 }
 
 textarea{

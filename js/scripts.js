@@ -1,3 +1,7 @@
+var errorCount = 0;
+var currentError = 0;
+var nextErrorDirection = true;
+
 function beautify() {
 	hideInputWindow();
 	var outputContainer = $("#output-container");
@@ -30,7 +34,12 @@ function parseLine(line) {
 		cssClass = getClassFromRegex(line);
 	}
 
-	return "<ul class=\"" + cssClass + "\">" + line + "</ul>";
+	if(cssClass == "error-log"){
+		errorCount++;
+		return "<ul class=\"" + cssClass + "\" id=\"error-" + errorCount + "\">" + escapeHtml(line) + "</ul>";
+	}
+
+	return "<ul class=\"" + cssClass + "\">" + escapeHtml(line) + "</ul>";
 }
 
 function getClassFromFirstChar(line) {
@@ -63,4 +72,30 @@ function getClassFromRegex(line) {
 		default:
 			return "verbose-log";
 	}
+}
+
+function goToNextError() {
+	if(!nextErrorDirection){
+		nextErrorDirection = true;
+		currentError++;
+	}
+	if(currentError >= errorCount){
+		currentError = 0;
+	}
+	$('html, body').animate({
+		scrollTop: $("#error-" + ++currentError).offset().top
+	}, 500);
+}
+
+function goToPreviousError() {
+	if(nextErrorDirection){
+		nextErrorDirection = false;
+		currentError--;
+	}
+	if(currentError <= 0){
+		currentError = errorCount;
+	}
+	$('html, body').animate({
+		scrollTop: $("#error-" + currentError--).offset().top
+	}, 500);
 }
