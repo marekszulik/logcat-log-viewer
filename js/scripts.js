@@ -1,4 +1,5 @@
 function beautify() {
+	hideInputWindow();
 	var outputContainer = $("#output-container");
 	outputContainer.text("");
 
@@ -7,6 +8,17 @@ function beautify() {
 	inputLog.forEach(function(entry) {
 		outputContainer.append(parseLine(entry));
 	});
+}
+
+function hideInputWindow() {
+	var pastedLogTextarea = $('#pasted-log');
+	pastedLogTextarea.focus(function () {
+		$(this).animate({ height: "30em" }, 500);
+	});
+	pastedLogTextarea.blur(function () {
+		$(this).animate({ height: "1em" }, 500);	
+	});
+	pastedLogTextarea.blur();
 }
 
 function parseLine(line) {
